@@ -1,26 +1,23 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import createStore from './store/createStore'
-import './styles/main.scss'
+import { render } from 'react-dom'
+import { createStore } from 'redux'
 
-// Store Initialization
-// ------------------------------------
-const store = createStore(window.__INITIAL_STATE__)
+import './styles/main.scss'
+import AppContainer from './containers/AppContainer'
+import reducer from './reducer'
+
 
 // Render Setup
 // ------------------------------------
 const MOUNT_NODE = document.getElementById('root')
+const store = createStore(reducer)
 
-let render = () => {
-  const App = require('./components/App').default
-  const routes = require('./routes/index').default(store)
-
-  ReactDOM.render(
-    <App store={store} routes={routes} />,
+render(
+    <AppContainer store={store} />,
     MOUNT_NODE
-  )
-}
+)
 
+/*
 // Development Tools
 // ------------------------------------
 if (__DEV__) {
@@ -57,3 +54,4 @@ if (__DEV__) {
 // Let's Go!
 // ------------------------------------
 if (!__TEST__) render()
+*/
