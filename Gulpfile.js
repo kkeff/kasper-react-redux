@@ -30,6 +30,7 @@ gulp.task('build', [
 ]);
 
 gulp.task('dev', [
+  'lint',
   'build',
   'watch',
   // 'jasmine',
@@ -60,14 +61,14 @@ gulp.task('webserver', () => {
 });
 
 gulp.task('lint', () => {
-  return gulp.src([paths.js,'!node_modules/**'])
+  return gulp.src(['**/*.js','!node_modules/**'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
 
 gulp.task('autoprefixer', () => {
-  return gulp.src('./src/**/*.css')
+  return gulp.src('./dist/**/*.css')
   .pipe(sourcemaps.init())
   .pipe(postcss([ autoprefixer() ]))
   .pipe(sourcemaps.write('.'))
@@ -75,7 +76,7 @@ gulp.task('autoprefixer', () => {
 });
 
 gulp.task('css:bundle', () => {
-  gulp.src('./src/styles/*.scss')
+  gulp.src('./src/styles/**/*.scss')
   .pipe(sass().on('error', sass.logError))
   .pipe(gulp.dest('./dist/css'));
 });

@@ -1,3 +1,5 @@
 node_modules/
 pot-client/
 project.config.js
+dist/
+src/utils/hardCodedValues.js

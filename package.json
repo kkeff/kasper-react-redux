@@ -8,7 +8,8 @@
     "email": "kasper.gustavii@live.se"
   },
   "scripts": {
-    "build": "gulp build"
+    "build": "gulp build",
+    "start": "gulp dev"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
@@ -21,7 +22,7 @@
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-jasmine": "2.6.2",
     "eslint-plugin-react": "^6.8.0",
-    "gulp": "3.9.0",
+    "gulp": "3.9.1",
     "gulp-babel": "6.1.2",
     "gulp-env": "0.4.0",
     "gulp-eslint": "^3.0.1",

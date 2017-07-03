@@ -1,19 +1,16 @@
 {
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:jasmine/recommended"
+    "plugin:react/recommended"
   ],
   "plugins": [
     "react",
-    "babel",
-    "jasmine"
+    "babel"
   ],
   "env": {
     "browser": true,
     "es6": true,
-    "jquery": true,
-    "jasmine": true
+    "jquery": true
   },
   "parser": "babel-eslint"
 }

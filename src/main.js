@@ -1,27 +1,29 @@
-import React from 'react'
-import { render } from 'react-dom'
+import React           from 'react'
+import { render }      from 'react-dom'
 import { createStore } from 'redux'
+import { Provider }    from 'react-redux';
 
-import AppContainer from './containers/AppContainer'
-import reducer from './reducer'
-import potClientMaker from './pot-client/potTest'
+import AppContainer    from './containers/AppContainer'
+import reducer         from './reducer'
+import potClientMaker  from './pot-client/potClient'
+import { uri, serverPub, myPublic, mySecret, delegChain } from './utils/hardCodedValues'
 
 // Render Setup
 // ------------------------------------
 const MOUNT_NODE = document.getElementById('root')
-const store = createStore(reducer)
 
-
-console.log("Hej: " + localStorage.getItem("myCat"))
-localStorage.myCat = 'Tom'
+console.log('Hej: ' + localStorage.getItem('myCat'))
+localStorage.myCat = 'Tom';
 
 const potClient = potClientMaker();
 
-console.log(potClientMaker);
-console.log(potClient);
+const client = potClient.start(uri, serverPub, myPublic, mySecret, delegChain);
+const store = createStore(reducer)
 
 render(
-  <AppContainer store={store} />,
+  <Provider store={store}>
+    <AppContainer client={client} />
+  </Provider>,
   MOUNT_NODE
 )
 

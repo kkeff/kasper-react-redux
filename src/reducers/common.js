@@ -1,4 +1,8 @@
-const test = (state = 'LOGIN', action) => {
+const defaultState = {
+  appName: 'Care'
+}
+
+export default (state = defaultState, action) => {
   switch (action.type) {
     case 'CHANGE_PAGE':
       return action.page
@@ -6,5 +10,3 @@ const test = (state = 'LOGIN', action) => {
       return state
   }
 }
-
-export default test

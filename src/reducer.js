@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import test from './reducers/test'
+import common from './reducers/common'
 
 export default combineReducers({
-  test
+  common
 })

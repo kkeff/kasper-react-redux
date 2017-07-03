@@ -1,6 +1,4 @@
 node_modules/**
-www/**
-hooks/**
-platforms/**
-plugins/**
+dist/**
+src/pot-client/**
 Gulpfile.js
