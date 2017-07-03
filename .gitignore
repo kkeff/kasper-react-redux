@@ -1,8 +1,3 @@
-.DS_STORE
-*.log
-node_modules
-tests
-dist
-coverage
-.idea/
-.yarn-cache
+node_modules/
+pot-client/
+project.config.js
